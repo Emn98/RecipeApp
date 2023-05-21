@@ -50,11 +50,10 @@ interface TheMealDBApiService{
         @Path("api_key") apiKey: String = Constants.API_KEY
     ): MealCategoryResponse
 
-    @GET("{api_key}/filter.php?")
+    @GET("{api_key}/filter.php")
     suspend fun getRecipesByCategory(
-        @Query("c")  category: String,
-        @Path("api_key") apiKey: String = Constants.API_KEY
-
+        @Path("api_key") apiKey: String = Constants.API_KEY,
+        @Query("c")  c: String
     ): RecipeResponse
 
 

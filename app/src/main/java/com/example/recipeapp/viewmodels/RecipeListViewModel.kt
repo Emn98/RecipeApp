@@ -1,6 +1,7 @@
 package com.example.recipeapp.viewmodels
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -33,10 +34,11 @@ class RecipeListViewModel(application: Application, mealCategory: MealCategory):
     fun getRecipes(categoryName: String){
         viewModelScope.launch {
             try {
-                val recipeResponse: RecipeResponse = theMealDBApi.recipeListRetrofitService.getRecipesByCategory(categoryName)
+                val recipeResponse: RecipeResponse = theMealDBApi.recipeListRetrofitService.getRecipesByCategory(c=categoryName)
                     _recipeList.value = recipeResponse.recipes
             } catch (e : java.lang.Exception) {
                 _recipeList.value = arrayListOf()
+                Log.e("API_CALL", "API call failed: ${e.message}", e)
             }
         }
     }
