@@ -6,8 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.navigateUp
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.recipeapp.R
 import com.example.recipeapp.adapters.RecipeAdapter
 import com.example.recipeapp.adapters.RecipeClickListener
 import com.example.recipeapp.databinding.FragmentRecipeListBinding
@@ -65,8 +68,6 @@ class RecipeListFragment : Fragment() {
         }
 
 
-
-
         return binding.root
 
     }
@@ -85,4 +86,5 @@ class RecipeListFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 }

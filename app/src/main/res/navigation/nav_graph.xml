@@ -24,7 +24,8 @@
             app:argType="com.example.recipeapp.models.MealCategory" />
         <action
             android:id="@+id/action_RecipeListFragment_to_MealCategoryListFragment"
-            app:destination="@id/MealCategoryListFragment" />
+            app:destination="@id/MealCategoryListFragment"
+            app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_RecipeListFragment_to_RecipeDetailsFragment"
             app:destination="@id/RecipeDetailsFragment" />
