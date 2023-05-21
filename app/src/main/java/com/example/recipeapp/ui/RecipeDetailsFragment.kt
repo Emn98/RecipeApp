@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.recipeapp.adapters.RecipeAdapter
 import com.example.recipeapp.adapters.RecipeClickListener
 import com.example.recipeapp.databinding.FragmentRecipeDetailsBinding
-import com.example.recipeapp.databinding.FragmentRecipeListBinding
 import com.example.recipeapp.models.MealCategory
 import com.example.recipeapp.models.Recipe
 import com.example.recipeapp.viewmodels.RecipeDetailsViewModel
@@ -44,6 +43,7 @@ class RecipeDetailsFragment : Fragment() {
 
         _binding = FragmentRecipeDetailsBinding.inflate(inflater)
         recipe = RecipeDetailsFragmentArgs.fromBundle(requireArguments()).recipe
+        binding.recipe = recipe
         mealCategory = RecipeDetailsFragmentArgs.fromBundle(requireArguments()).mealCategory
 
 
@@ -52,22 +52,22 @@ class RecipeDetailsFragment : Fragment() {
         viewModelFactory = RecipeDetailsViewModelFactory(application, recipe)
         viewModel = ViewModelProvider(this, viewModelFactory)[RecipeDetailsViewModel::class.java]
 
+        viewModel.recipeDetail.observe(viewLifecycleOwner) { recipeDetail ->
+            recipeDetail?.let {
+                binding.recipeDetail = recipeDetail
 
 
 
+            }
+        }
 
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.recipeDetailsRv.layoutManager = GridLayoutManager(context, 2)
 
-        binding.buttonSecond.setOnClickListener {
-            findNavController().navigate(RecipeDetailsFragmentDirections.actionRecipeDetailsFragmentToRecipeListFragment(mealCategory))
-        }
     }
 
     override fun onDestroyView() {

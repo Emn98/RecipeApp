@@ -4,7 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="recipeDetail"
+            type="com.example.recipeapp.models.RecipeDetail" />
 
+        <variable
+            name="recipe"
+            type="com.example.recipeapp.models.Recipe" />
     </data>
 
 
@@ -16,38 +22,133 @@
 
 
         <ImageView
-            android:id="@+id/status_image"
-            android:layout_width="wrap_content"
+            android:id="@+id/recipe_detail_thumbnail"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@id/recipe_details_rv"
-            app:layout_constraintEnd_toEndOf="@id/recipe_details_rv"
-            app:layout_constraintStart_toStartOf="@id/recipe_details_rv"
-            app:layout_constraintTop_toTopOf="@id/recipe_details_rv"
+            app:mealCategoryImageUrl="@{recipe.thumbNailPath}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/recipe_detail_title"
             tools:srcCompat="@tools:sample/avatars" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recipe_details_rv"
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/recipe_detail_title"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:scrollbars="vertical"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:gravity="center_horizontal"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:background="#d3d3d3"
+            android:text="@{recipeDetail.recipeName}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/recipe_detail_thumbnail"
+            tools:text="RecipeTitle" />
 
-        <Button
-            android:id="@+id/button_second"
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/recipe_detail_category"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/previous"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center_horizontal"
+            android:textSize="18sp"
+            android:background="#d3d3d3"
+            android:text="@{recipeDetail.category}"
+            app:layout_constraintTop_toBottomOf="@id/recipe_detail_title"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/recipe_details_rv" />
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="WAHOOO"/>
 
+        <ScrollView
+            android:id="@+id/scrollview_recipes_detail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recipe_detail_category"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="215dp">
+
+            <LinearLayout
+                android:id="@+id/linearLayout_recipes_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/ingredient_title_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="8dp"
+                    android:textStyle="bold"
+                    android:text="@string/ingredients"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/recipes_ingredients_text"
+                    tools:text="Ingredients:"/>
+
+                <TextView
+                    android:id="@+id/recipes_ingredients_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text=""
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ingredient_title_text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="SHEESH"/>
+
+
+                <TextView
+                    android:id="@+id/recipes_instructions_title_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="8dp"
+                    android:textStyle="bold"
+                    android:text="@string/Instructions"
+                    app:layout_constraintTop_toBottomOf="@id/recipes_ingredients_text"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/recipes_instructions_text"
+                    tools:text="Instructions:"/>
+
+                    <TextView
+                        android:id="@+id/recipes_instructions_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/recipes_instructions_title_text"
+                        app:layout_constraintBottom_toTopOf="@id/youtube_btn"
+                        />
+
+                    <Button
+                        android:id="@+id/youtube_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="YouTube"
+                        app:layout_constraintTop_toBottomOf="@id/recipes_instructions_text"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </layout>

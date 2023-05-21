@@ -35,7 +35,7 @@
     <fragment
         android:id="@+id/RecipeDetailsFragment"
         android:name="com.example.recipeapp.ui.RecipeDetailsFragment"
-        android:label="RecipeDetailsFragment" >
+        android:label="@string/third_fragment_label">
         <action
             android:id="@+id/action_RecipeDetailsFragment_to_RecipeListFragment"
             app:destination="@id/RecipeListFragment"
