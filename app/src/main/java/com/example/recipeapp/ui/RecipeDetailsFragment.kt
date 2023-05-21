@@ -10,22 +10,27 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.recipeapp.adapters.RecipeAdapter
 import com.example.recipeapp.adapters.RecipeClickListener
+import com.example.recipeapp.databinding.FragmentRecipeDetailsBinding
 import com.example.recipeapp.databinding.FragmentRecipeListBinding
 import com.example.recipeapp.models.MealCategory
+import com.example.recipeapp.models.Recipe
+import com.example.recipeapp.viewmodels.RecipeDetailsViewModel
+import com.example.recipeapp.viewmodels.RecipeDetailsViewModelFactory
 import com.example.recipeapp.viewmodels.RecipeListViewModel
 import com.example.recipeapp.viewmodels.RecipeListViewModelFactory
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
-class RecipeListFragment : Fragment() {
+class RecipeDetailsFragment : Fragment() {
 
-    private var _binding: FragmentRecipeListBinding? = null
+    private var _binding: FragmentRecipeDetailsBinding? = null
 
-    private lateinit var viewModel: RecipeListViewModel
-    private lateinit var viewModelFactory: RecipeListViewModelFactory
+    private lateinit var viewModel: RecipeDetailsViewModel
+    private lateinit var viewModelFactory: RecipeDetailsViewModelFactory
 
     private lateinit var mealCategory: MealCategory
+    private lateinit var recipe: Recipe
 
 
     // This property is only valid between onCreateView and
@@ -37,33 +42,27 @@ class RecipeListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentRecipeListBinding.inflate(inflater)
-        mealCategory = RecipeListFragmentArgs.fromBundle(requireArguments()).mealCategory
+        _binding = FragmentRecipeDetailsBinding.inflate(inflater)
+        recipe = RecipeDetailsFragmentArgs.fromBundle(requireArguments()).recipe
+        mealCategory = RecipeDetailsFragmentArgs.fromBundle(requireArguments()).mealCategory
+
 
         val application = requireNotNull(this.activity).application
 
-        viewModelFactory = RecipeListViewModelFactory(application, mealCategory)
-        viewModel = ViewModelProvider(this, viewModelFactory)[RecipeListViewModel::class.java]
-
-        val recipeListAdapter = RecipeAdapter(RecipeClickListener { recipe ->
-            viewModel.onRecipeItemClicked(recipe)
-        })
-
-        binding.recipeListRv.adapter = recipeListAdapter
-
-        viewModel.recipeList.observe(viewLifecycleOwner) { recipeList ->
-            recipeList?.let { recipeListAdapter.submitList(recipeList) }
-        }
+        viewModelFactory = RecipeDetailsViewModelFactory(application, recipe)
+        viewModel = ViewModelProvider(this, viewModelFactory)[RecipeDetailsViewModel::class.java]
 
 
+
+        /*
         viewModel.navigateToRecipe.observe(viewLifecycleOwner) { recipe ->
             recipe?.let {
                 this.findNavController().navigate(
-                    RecipeListFragmentDirections.actionRecipeListFragmentToRecipeDetailsFragment(recipe, mealCategory)
+                    MealCategoryListFragmentDirections.actionRecipeListFragmentToRecipeDetailFragment(recipe)
                 )
             }
         }
-
+        */
 
 
 
@@ -74,10 +73,10 @@ class RecipeListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.recipeListRv.layoutManager = GridLayoutManager(context, 2)
+        binding.recipeDetailsRv.layoutManager = GridLayoutManager(context, 2)
 
         binding.buttonSecond.setOnClickListener {
-            findNavController().navigate(RecipeListFragmentDirections.actionRecipeListFragmentToMealCategoryListFragment())
+            findNavController().navigate(RecipeDetailsFragmentDirections.actionRecipeDetailsFragmentToRecipeListFragment(mealCategory))
         }
     }
 

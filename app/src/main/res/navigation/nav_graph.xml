@@ -25,5 +25,22 @@
         <action
             android:id="@+id/action_RecipeListFragment_to_MealCategoryListFragment"
             app:destination="@id/MealCategoryListFragment" />
+        <action
+            android:id="@+id/action_RecipeListFragment_to_RecipeDetailsFragment"
+            app:destination="@id/RecipeDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/RecipeDetailsFragment"
+        android:name="com.example.recipeapp.ui.RecipeDetailsFragment"
+        android:label="RecipeDetailsFragment" >
+        <action
+            android:id="@+id/action_RecipeDetailsFragment_to_RecipeListFragment"
+            app:destination="@id/RecipeListFragment" />
+        <argument
+            android:name="recipe"
+            app:argType="com.example.recipeapp.models.Recipe" />
+        <argument
+            android:name="mealCategory"
+            app:argType="com.example.recipeapp.models.MealCategory" />
     </fragment>
 </navigation>
