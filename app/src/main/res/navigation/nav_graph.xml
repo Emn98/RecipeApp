@@ -12,7 +12,8 @@
         tools:layout="@layout/fragment_meal_category_list">
         <action
             android:id="@+id/action_MealCategoryListFragment_to_RecipeListFragment"
-            app:destination="@id/RecipeListFragment" />
+            app:destination="@id/RecipeListFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/RecipeListFragment"
@@ -28,7 +29,8 @@
             app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_RecipeListFragment_to_RecipeDetailsFragment"
-            app:destination="@id/RecipeDetailsFragment" />
+            app:destination="@id/RecipeDetailsFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/RecipeDetailsFragment"
@@ -36,7 +38,8 @@
         android:label="RecipeDetailsFragment" >
         <action
             android:id="@+id/action_RecipeDetailsFragment_to_RecipeListFragment"
-            app:destination="@id/RecipeListFragment" />
+            app:destination="@id/RecipeListFragment"
+            app:popUpToInclusive="false" />
         <argument
             android:name="recipe"
             app:argType="com.example.recipeapp.models.Recipe" />

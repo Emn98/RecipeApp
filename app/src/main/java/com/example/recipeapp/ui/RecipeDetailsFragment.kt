@@ -54,16 +54,6 @@ class RecipeDetailsFragment : Fragment() {
 
 
 
-        /*
-        viewModel.navigateToRecipe.observe(viewLifecycleOwner) { recipe ->
-            recipe?.let {
-                this.findNavController().navigate(
-                    MealCategoryListFragmentDirections.actionRecipeListFragmentToRecipeDetailFragment(recipe)
-                )
-            }
-        }
-        */
-
 
 
         return binding.root

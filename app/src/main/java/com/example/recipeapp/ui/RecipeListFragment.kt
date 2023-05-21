@@ -64,6 +64,7 @@ class RecipeListFragment : Fragment() {
                 this.findNavController().navigate(
                     RecipeListFragmentDirections.actionRecipeListFragmentToRecipeDetailsFragment(recipe, mealCategory)
                 )
+                viewModel.onRecipeNavigated()
             }
         }
 
@@ -74,12 +75,7 @@ class RecipeListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding.recipeListRv.layoutManager = GridLayoutManager(context, 2)
-
-        binding.buttonSecond.setOnClickListener {
-            findNavController().navigate(RecipeListFragmentDirections.actionRecipeListFragmentToMealCategoryListFragment())
-        }
     }
 
     override fun onDestroyView() {
