@@ -3,6 +3,7 @@ package com.example.recipeapp.models
 import android.os.Parcelable
 import com.squareup.moshi.Json
 import kotlinx.parcelize.Parcelize
+import java.io.StringBufferInputStream
 
 @Parcelize
 data class RecipeDetail(
@@ -12,6 +13,9 @@ data class RecipeDetail(
 
     @Json(name = "strMeal")
     var recipeName: String,
+
+    @Json(name = "strInstructions")
+    var recipeDetailsInstructions: String,
 
     @Json(name = "strMealThumb")
     var thumbNailPath: String,
