@@ -10,6 +10,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 import java.util.concurrent.TimeUnit
 
 /**
@@ -48,6 +49,13 @@ interface TheMealDBApiService{
     suspend fun getMealCategories(
         @Path("api_key") apiKey: String = Constants.API_KEY
     ): MealCategoryResponse
+
+    @GET("{api_key}/filter.php?")
+    suspend fun getRecipesByCategory(
+        @Query("c")  category: String,
+        @Path("api_key") apiKey: String = Constants.API_KEY
+
+    ): RecipeResponse
 
 
 }

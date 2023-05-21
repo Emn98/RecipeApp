@@ -43,7 +43,7 @@ class MealCategoryListViewModel(application: Application): AndroidViewModel(appl
         _navigateToMealCategory.value = mealCategory
     }
 
-    fun onMealCategoryRecipesNagivated(){
+    fun onMealCategoryRecipesNavigated(){
         _navigateToMealCategory.value = null
     }
 
