@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.recipeapp.databinding.FragmentRecipeDetailsBinding
 import com.example.recipeapp.models.MealCategory
 import com.example.recipeapp.models.Recipe
@@ -24,6 +25,9 @@ class RecipeDetailsFragment : Fragment() {
 
     private lateinit var mealCategory: MealCategory
     private lateinit var recipe: Recipe
+
+    private  var youtubeLink : String? = null
+
 
 
     // This property is only valid between onCreateView and
@@ -94,6 +98,10 @@ class RecipeDetailsFragment : Fragment() {
                 binding.ingredientsList = builder
 
                 binding.instructions = recipeDetail.recipeDetailsInstructions
+
+                youtubeLink = recipeDetail.youtubeLink?.substringAfterLast("v=")
+
+
             }
         }
 
@@ -103,7 +111,11 @@ class RecipeDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+        binding.youtubeBtn.setOnClickListener{
+            this.findNavController().navigate(
+                RecipeDetailsFragmentDirections.actionRecipeDetailsFragmentToYoutubeVideoFragment(youtubeLink!!)
+            )
+        }
     }
 
     override fun onDestroyView() {

@@ -12,139 +12,139 @@ data class RecipeDetail(
     var id: Int,
 
     @Json(name = "strMeal")
-    var recipeName: String,
+    var recipeName: String?,
 
     @Json(name = "strInstructions")
-    var recipeDetailsInstructions: String,
+    var recipeDetailsInstructions: String?,
 
     @Json(name = "strMealThumb")
     var thumbNailPath: String,
 
     @Json(name = "strCategory")
-    var category: String,
+    var category: String?,
 
     @Json(name = "strYoutube")
-    var youtubeLink: String,
+    var youtubeLink: String?,
 
     @Json(name = "strIngredient1")
-    var ingredient1: String,
+    var ingredient1: String?,
 
     @Json(name = "strIngredient2")
-    var ingredient2: String,
+    var ingredient2: String?,
 
     @Json(name = "strIngredient3")
-    var ingredient3: String,
+    var ingredient3: String?,
 
     @Json(name = "strIngredient4")
-    var ingredient4: String,
+    var ingredient4: String?,
 
     @Json(name = "strIngredient5")
-    var ingredient5: String,
+    var ingredient5: String?,
 
     @Json(name = "strIngredient6")
-    var ingredient6: String,
+    var ingredient6: String?,
 
     @Json(name = "strIngredient7")
-    var ingredient7: String,
+    var ingredient7: String?,
 
     @Json(name = "strIngredient8")
-    var ingredient8: String,
+    var ingredient8: String?,
 
     @Json(name = "strIngredient9")
-    var ingredient9: String,
+    var ingredient9: String?,
 
     @Json(name = "strIngredient10")
-    var ingredient10: String,
+    var ingredient10: String?,
 
     @Json(name = "strIngredient11")
-    var ingredient11: String,
+    var ingredient11: String?,
 
     @Json(name = "strIngredient12")
-    var ingredient12: String,
+    var ingredient12: String?,
 
     @Json(name = "strIngredient13")
-    var ingredient13: String,
+    var ingredient13: String?,
 
     @Json(name = "strIngredient14")
-    var ingredient14: String,
+    var ingredient14: String?,
 
     @Json(name = "strIngredient15")
-    var ingredient15: String,
+    var ingredient15: String?,
 
     @Json(name = "strIngredient16")
-    var ingredient16: String,
+    var ingredient16: String?,
 
     @Json(name = "strIngredient17")
-    var ingredient17: String,
+    var ingredient17: String?,
 
     @Json(name = "strIngredient18")
-    var ingredient18: String,
+    var ingredient18: String?,
 
     @Json(name = "strIngredient19")
-    var ingredient19: String,
+    var ingredient19: String?,
 
     @Json(name = "strIngredient20")
-    var ingredient20: String,
+    var ingredient20: String?,
 
     @Json(name = "strMeasure1")
-    var strMeasure1: String,
+    var strMeasure1: String?,
 
     @Json(name = "strMeasure2")
-    var strMeasure2: String,
+    var strMeasure2: String?,
 
     @Json(name = "strMeasure3")
-    var strMeasure3: String,
+    var strMeasure3: String?,
 
     @Json(name = "strMeasure4")
-    var strMeasure4: String,
+    var strMeasure4: String?,
 
     @Json(name = "strMeasure5")
-    var strMeasure5: String,
+    var strMeasure5: String?,
 
     @Json(name = "strMeasure6")
-    var strMeasure6: String,
+    var strMeasure6: String?,
 
     @Json(name = "strMeasure7")
-    var strMeasure7: String,
+    var strMeasure7: String?,
 
     @Json(name = "strMeasure8")
-    var strMeasure8: String,
+    var strMeasure8: String?,
 
     @Json(name = "strMeasure9")
-    var strMeasure9: String,
+    var strMeasure9: String?,
 
     @Json(name = "strMeasure10")
-    var strMeasure10: String,
+    var strMeasure10: String?,
 
     @Json(name = "strMeasure11")
-    var strMeasure11: String,
+    var strMeasure11: String?,
 
     @Json(name = "strMeasure12")
-    var strMeasure12: String,
+    var strMeasure12: String?,
 
     @Json(name = "strMeasure13")
-    var strMeasure13: String,
+    var strMeasure13: String?,
 
     @Json(name = "strMeasure14")
-    var strMeasure14: String,
+    var strMeasure14: String?,
 
     @Json(name = "strMeasure15")
-    var strMeasure15: String,
+    var strMeasure15: String?,
 
     @Json(name = "strMeasure16")
-    var strMeasure16: String,
+    var strMeasure16: String?,
 
     @Json(name = "strMeasure17")
-    var strMeasure17: String,
+    var strMeasure17: String?,
 
     @Json(name = "strMeasure18")
-    var strMeasure18: String,
+    var strMeasure18: String?,
 
     @Json(name = "strMeasure19")
-    var strMeasure19: String,
+    var strMeasure19: String?,
 
     @Json(name = "strMeasure20")
-    var strMeasure20: String,
+    var strMeasure20: String?,
 
     ) : Parcelable
 

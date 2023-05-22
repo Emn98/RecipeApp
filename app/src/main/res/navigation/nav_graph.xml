@@ -46,5 +46,19 @@
         <argument
             android:name="mealCategory"
             app:argType="com.example.recipeapp.models.MealCategory" />
+        <action
+            android:id="@+id/action_RecipeDetailsFragment_to_youtubeVideoFragment"
+            app:destination="@id/youtubeVideoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/youtubeVideoFragment"
+        android:name="com.example.recipeapp.ui.YoutubeVideoFragment"
+        android:label="@string/youtube_fragment_label">
+        <action
+            android:id="@+id/action_youtubeVideoFragment2_to_RecipeDetailsFragment"
+            app:destination="@id/RecipeDetailsFragment" />
+        <argument
+            android:name="youtubeLink"
+            app:argType="string" />
     </fragment>
 </navigation>
