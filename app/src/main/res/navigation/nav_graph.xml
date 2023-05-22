@@ -12,7 +12,8 @@
         tools:layout="@layout/fragment_meal_category_list">
         <action
             android:id="@+id/action_MealCategoryListFragment_to_RecipeListFragment"
-            app:destination="@id/RecipeListFragment" />
+            app:destination="@id/RecipeListFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/RecipeListFragment"
@@ -24,6 +25,40 @@
             app:argType="com.example.recipeapp.models.MealCategory" />
         <action
             android:id="@+id/action_RecipeListFragment_to_MealCategoryListFragment"
-            app:destination="@id/MealCategoryListFragment" />
+            app:destination="@id/MealCategoryListFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_RecipeListFragment_to_RecipeDetailsFragment"
+            app:destination="@id/RecipeDetailsFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/RecipeDetailsFragment"
+        android:name="com.example.recipeapp.ui.RecipeDetailsFragment"
+        android:label="@string/third_fragment_label">
+        <action
+            android:id="@+id/action_RecipeDetailsFragment_to_RecipeListFragment"
+            app:destination="@id/RecipeListFragment"
+            app:popUpToInclusive="false" />
+        <argument
+            android:name="recipe"
+            app:argType="com.example.recipeapp.models.Recipe" />
+        <argument
+            android:name="mealCategory"
+            app:argType="com.example.recipeapp.models.MealCategory" />
+        <action
+            android:id="@+id/action_RecipeDetailsFragment_to_youtubeVideoFragment"
+            app:destination="@id/youtubeVideoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/youtubeVideoFragment"
+        android:name="com.example.recipeapp.ui.YoutubeVideoFragment"
+        android:label="@string/youtube_fragment_label">
+        <action
+            android:id="@+id/action_youtubeVideoFragment2_to_RecipeDetailsFragment"
+            app:destination="@id/RecipeDetailsFragment" />
+        <argument
+            android:name="youtubeLink"
+            app:argType="string" />
     </fragment>
 </navigation>

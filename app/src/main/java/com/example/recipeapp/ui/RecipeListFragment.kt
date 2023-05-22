@@ -6,8 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.navigateUp
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.recipeapp.R
 import com.example.recipeapp.adapters.RecipeAdapter
 import com.example.recipeapp.adapters.RecipeClickListener
 import com.example.recipeapp.databinding.FragmentRecipeListBinding
@@ -55,16 +58,15 @@ class RecipeListFragment : Fragment() {
             recipeList?.let { recipeListAdapter.submitList(recipeList) }
         }
 
-        /*
+
         viewModel.navigateToRecipe.observe(viewLifecycleOwner) { recipe ->
             recipe?.let {
                 this.findNavController().navigate(
-                    MealCategoryListFragmentDirections.actionRecipeListFragmentToRecipeDetailFragment(recipe)
+                    RecipeListFragmentDirections.actionRecipeListFragmentToRecipeDetailsFragment(recipe, mealCategory)
                 )
+                viewModel.onRecipeNavigated()
             }
         }
-        */
-
 
 
         return binding.root
@@ -73,16 +75,12 @@ class RecipeListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding.recipeListRv.layoutManager = GridLayoutManager(context, 2)
-
-        binding.buttonSecond.setOnClickListener {
-            findNavController().navigate(RecipeListFragmentDirections.actionRecipeListFragmentToMealCategoryListFragment())
-        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
 }

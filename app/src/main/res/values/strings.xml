@@ -3,8 +3,12 @@
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">SRA - Categories</string>
-    <string name="second_fragment_label">Second Fragment</string>
+    <string name="second_fragment_label">SRA - Recipes</string>
+    <string name="third_fragment_label">SRA - Recipe Detail</string>
+    <string name="youtube_fragment_label">SRA - Youtube Player</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="Instructions">Instructions</string>
 
 </resources>

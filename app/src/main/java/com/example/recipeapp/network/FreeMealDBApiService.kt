@@ -56,6 +56,12 @@ interface TheMealDBApiService{
         @Query("c")  c: String
     ): RecipeResponse
 
+    @GET("{api_key}/lookup.php")
+    suspend fun getRecipeDetail(
+        @Path("api_key") apiKey: String = Constants.API_KEY,
+        @Query("i") i: Int
+    ): RecipeDetailResponse
+
 
 }
 object theMealDBApi{

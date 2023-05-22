@@ -20,23 +20,44 @@
         android:layout_margin="4dp"
         android:onClick="@{() -> clickListener.onClick(mealCategory)}"
         app:cardCornerRadius="4dp"
-        app:cardElevation="4dp">
+        app:cardElevation="6dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/meal_category_thumbnail_grid"
-            android:layout_width="160dp"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_margin="6dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/meal_category_title"
             app:mealCategoryImageUrl="@{mealCategory.thumbnailPath}"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
             android:id="@+id/meal_category_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            />
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="@{mealCategory.categoryName}"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center_horizontal"
+            android:background="#d3d3d3"
+            android:layout_marginTop="2dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintTop_toBottomOf="@id/meal_category_thumbnail_grid"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="MeatBallls" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>
 </layout>
