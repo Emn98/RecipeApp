@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -101,7 +102,9 @@ class RecipeDetailsFragment : Fragment() {
 
                 youtubeLink = recipeDetail.youtubeLink?.substringAfterLast("v=")
 
-
+                if (youtubeLink?.length != 11 || youtubeLink == "" || youtubeLink == null){
+                    binding.youtubeBtn.visibility = View.GONE
+                }
             }
         }
 
