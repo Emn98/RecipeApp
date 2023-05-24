@@ -11,6 +11,6 @@ The second fragment showcases all the available recipes within a selected catego
 ![appRecipeDetail](https://github.com/Emn98/RecipeApp/assets/60701147/e797fdf9-77c1-473b-99f7-f1019bc65a7c)
 The third fragment displays the details of a selected recipe. The app retrieves this information by utilizing the "Lookup full meal details by ID" API call.
 
-![appVideoPlayer](https://github.com/Emn98/RecipeApp/assets/60701147/1d9e1ff6-e0ed-4a38-a3fd-07e95f2b1499)
+![appVideoPlayer](https://github.com/Emn98/RecipeApp/assets/60701147/546772cb-b84e-4a25-bb50-0a93b275c73a)
 The fourth fragment contains a YouTube player that allows users to watch a tutorial video on how to make the selected recipe. This fragment is only available if the selected recipe has a valid video ID associated with it.
 
